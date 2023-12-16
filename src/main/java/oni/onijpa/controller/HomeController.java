@@ -1,6 +1,6 @@
 package oni.onijpa.controller;
 
-import oni.onijpa.model.Human;
+import oni.onijpa.domain.Human;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package oni.onijpa.model;
+package oni.onijpa.domain;
 
 import org.springframework.web.bind.annotation.ModelAttribute;
 
