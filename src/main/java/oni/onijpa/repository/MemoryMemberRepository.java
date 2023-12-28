@@ -1,6 +1,7 @@
 package oni.onijpa.repository;
 
 import oni.onijpa.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 

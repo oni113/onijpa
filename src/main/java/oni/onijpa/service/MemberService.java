@@ -2,7 +2,6 @@ package oni.onijpa.service;
 
 import oni.onijpa.domain.Member;
 import oni.onijpa.repository.MemberRepository;
-import oni.onijpa.repository.MemoryMemberRepository;
 
 import java.util.List;
 import java.util.Optional;
