@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up Page</title>
+</head>
+<body>
+<div class="container">
+    <form action="/members/new" method="post">
+        <div class="form-group">
+            <labe>이름</labe>
+            <input type="text" name="name" id="name" placeholder="이름을 입력하세요.">
+            <labe>이메일</labe>
+            <input type="text" name="email" id="email" placeholder="이메일을 입력하세요.">
+            <button type="submit">등록</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
