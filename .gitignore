@@ -39,3 +39,4 @@ out/
 
 ### private resources ###
 !**/src/main/resources/application-*.properties
+src/main/resources/application-*.properties

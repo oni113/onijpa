@@ -1,31 +1,25 @@
 package oni.onijpa.service;
 
 import oni.onijpa.domain.Member;
-import oni.onijpa.repository.MemberRepository;
-import oni.onijpa.repository.MemoryMemberRepository;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Optional;
-
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@SpringBootTest
+@Transactional
 class MemberServiceTest {
-    MemberRepository memberRepository;
+    @Autowired
     MemberService service;
-
-    @BeforeEach
-    void clearMemoryRepository() {
-        this.memberRepository = new MemoryMemberRepository();
-        this.service = new MemberService(this.memberRepository);
-    }
 
     @Test
     void join() {
         // given
         Member member = new Member();
-        member.setEmail("aaa@aaa.aaa");
+        member.setEmail("aaa@ccc.aaa");
         member.setName("회원1");
 
         // when

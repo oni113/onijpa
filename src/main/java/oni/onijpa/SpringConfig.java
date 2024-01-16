@@ -1,13 +1,21 @@
 package oni.onijpa;
 
+import oni.onijpa.repository.JdbcTemplateMemberRepository;
 import oni.onijpa.repository.MemberRepository;
-import oni.onijpa.repository.MemoryMemberRepository;
 import oni.onijpa.service.MemberService;
-import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@SpringBootConfiguration
+import javax.sql.DataSource;
+
+@Configuration
 public class SpringConfig {
+
+    private final DataSource dataSource;
+
+    public SpringConfig(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Bean
     public MemberService memberService() {
@@ -16,6 +24,6 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
-        return new MemoryMemberRepository();
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
