@@ -2,10 +2,12 @@ package oni.onijpa.service;
 
 import oni.onijpa.domain.Member;
 import oni.onijpa.repository.MemberRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
