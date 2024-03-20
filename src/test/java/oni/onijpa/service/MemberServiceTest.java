@@ -34,9 +34,11 @@ class MemberServiceTest {
     void joinException() {
         // given
         Member member1 = new Member();
+        member1.setName("member1");
         member1.setEmail("aaa@aaa.com");
 
         Member member2 = new Member();
+        member1.setName("member2");
         member2.setEmail("aaa@aaa.com");
 
         // when
