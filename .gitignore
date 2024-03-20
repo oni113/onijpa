@@ -38,5 +38,4 @@ out/
 .vscode/
 
 ### private resources ###
-!**/src/main/resources/application-*.properties
-src/main/resources/application-*.properties
+src/main/resources/application-db.properties

@@ -59,6 +59,11 @@ public class JdbcTemplateMemberRepository implements MemberRepository {
         return jdbcTemplate.query("select * from member", memberRowMapper());
     }
 
+    @Override
+    public void deleteById(Long id) {
+        jdbcTemplate.query("delete from member where id = :id", memberRowMapper(), id);
+    }
+
     private RowMapper memberRowMapper() {
         return (RowMapper<Member>) (rs, rowNum) -> {
             Member member = new Member();

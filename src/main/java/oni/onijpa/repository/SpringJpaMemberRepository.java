@@ -11,4 +11,7 @@ public interface SpringJpaMemberRepository extends JpaRepository<Member, Long>, 
 
     @Override
     Optional<Member> findByName(String name);
+
+    @Override
+    void deleteById(Long id);
 }

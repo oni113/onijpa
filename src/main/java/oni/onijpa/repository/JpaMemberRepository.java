@@ -46,4 +46,10 @@ public class JpaMemberRepository implements MemberRepository {
     public List<Member> findAll() {
         return em.createQuery("select m from Member m", Member.class).getResultList();
     }
+
+    @Override
+    public void deleteById(Long id) {
+        Member member = em.find(Member.class, id);
+        em.remove(member);
+    }
 }

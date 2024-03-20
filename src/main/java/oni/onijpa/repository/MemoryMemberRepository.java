@@ -1,7 +1,6 @@
 package oni.onijpa.repository;
 
 import oni.onijpa.domain.Member;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
@@ -40,6 +39,11 @@ public class MemoryMemberRepository implements MemberRepository {
     @Override
     public List<Member> findAll() {
         return new ArrayList<Member>(store.values());
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        store.remove(Optional.ofNullable(store.get(id)));
     }
 
     public void clearStore() {
