@@ -41,27 +41,12 @@ public class RestMemberController {
         return memberService.findMember(member.getId());
     }
 
-    @Operation(summary = "회원 수정", description = "회원 정보 수정 : 이름")
-    @Parameter(name = "email", description = "이메일")
-    @Parameter(name = "name", description = "이름")
-    @PutMapping("/member")
-    public Optional<Member> editMember(@RequestParam(name = "name", required = true) String name, @RequestParam(name = "email", required = true) String email) {
-        Member member = new Member();
-        member.setName(name);
-        member.setEmail(email);
-        memberService.updateMemberName(member);
-
-        return memberService.findMember(member.getId());
-    }
-
     @Operation(summary = "회원 삭제", description = "회원 정보 삭제")
     @Parameter(name = "email", description = "이메일")
     @DeleteMapping("/member")
     public void deleteMember(@RequestParam(name = "email", required = true) String email) {
         memberService.deleteMember(email);
     }
-
-
 
     @Operation(summary = "회원 조회", description = "회원 단건 정보 조회")
     @Parameter(name = "email", description = "이메일")

@@ -33,12 +33,6 @@ public class MemberService {
         return memberRepository.findByEmail(email).stream().findAny();
     }
 
-    public Optional<Member> updateMemberName(Member member) {
-        memberRepository.save(member);
-
-        return Optional.ofNullable(member);
-    }
-
     public void deleteMember(String email) {
         Optional<Member> member = memberRepository.findByEmail(email);
         memberRepository.deleteById(member.orElseThrow().getId());

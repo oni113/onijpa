@@ -2,11 +2,15 @@ package oni.onijpa.repository;
 
 import jakarta.persistence.EntityManager;
 import oni.onijpa.domain.Member;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
 
 public class JpaMemberRepository implements MemberRepository {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private final EntityManager em;
 
@@ -23,6 +27,7 @@ public class JpaMemberRepository implements MemberRepository {
     @Override
     public Optional<Member> findById(Long id) {
         Member member = em.find(Member.class, id);
+        logger.debug("D logging");
         return Optional.of(member);
     }
 
@@ -39,6 +44,7 @@ public class JpaMemberRepository implements MemberRepository {
         List<Member> result = em.createQuery("select m from Member m where name = :name", Member.class)
                 .setParameter("name", name)
                 .getResultList();
+
         return result.stream().findAny();
     }
 
