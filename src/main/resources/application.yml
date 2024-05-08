@@ -1,0 +1,4 @@
+# private properties
+spring:
+    profiles:
+        include: db,swagger,logger

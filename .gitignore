@@ -39,3 +39,4 @@ out/
 
 ### private resources ###
 src/main/resources/application-db.properties
+src/main/resources/application-db.yml
