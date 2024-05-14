@@ -16,7 +16,7 @@ public class TimeTraceAop {
     @Around("execution(* oni.onijpa..*(..))")
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
         long start = System.currentTimeMillis();
-        logger.info("START: " + joinPoint.toString());
+        logger.debug("START: " + joinPoint.toString());
 
         try {
             return joinPoint.proceed();
@@ -24,7 +24,7 @@ public class TimeTraceAop {
             long finish = System.currentTimeMillis();
             long timeMs = finish - start;
 
-            logger.info("END: " + joinPoint.toString() + " " + timeMs + "ms");
+            logger.debug("END: " + joinPoint.toString() + " " + timeMs + "ms");
         }
     }
 }
