@@ -2,7 +2,6 @@ package oni.onijpa.service;
 
 import oni.onijpa.domain.Member;
 import oni.onijpa.repository.MemberRepository;
-import oni.onijpa.repository.NewMemberRepository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -11,27 +10,23 @@ import java.util.Optional;
 @Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
-    private final NewMemberRepository newMemberRepository;
 
-    public MemberService(MemberRepository memberRepository, NewMemberRepository newMemberRepository) {
+    public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
-        this.newMemberRepository = newMemberRepository;
     }
 
     public Long join(Member member) {
         validateDuplicateEmail(member);
-        //memberRepository.save(member);
-        newMemberRepository.save(member);
+        memberRepository.save(member);
         return member.getId();
     }
 
     public List<Member> findMembers() {
-        return newMemberRepository.findAll();
+        return memberRepository.findAll();
     }
 
     public Optional<Member> findMember(Long memberId) {
-        //return memberRepository.findById(memberId);
-        return Optional.ofNullable(newMemberRepository.find(memberId));
+        return Optional.ofNullable(memberRepository.find(memberId));
     }
 
     public Optional<Member> findMemberByEmail(String email) {
